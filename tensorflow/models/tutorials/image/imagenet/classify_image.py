@@ -172,7 +172,8 @@ def run_inference_on_image(image):
       if FLAGS.category in node_lookup.id_to_string(nodeid):
         score = predictions[nodeid]
         jpegFile = FLAGS.image_file.split('/')[-1]
-        print(str(FLAGS.category) + "," + jpegFile + "," + str(score) + "," + str(elapsedTime*1000))
+        with open("tensorflow_predictions.csv", "a") as myfile:
+          myfile.write(str(FLAGS.category) + "," + jpegFile + "," + str(score) + "," + str(elapsedTime*1000) + "\n")
         break
         
     #human_string = node_lookup.id_to_string(top_k[0])
