@@ -171,7 +171,8 @@ def run_inference_on_image(image):
       #print("node_lookup.id_to_string(nodeid) is " + node_lookup.id_to_string(nodeid))
       if FLAGS.category in node_lookup.id_to_string(nodeid):
         score = predictions[nodeid]
-        print(str(FLAGS.category) + "," + str(score) + "," + str(elapsedTime*1000))
+        jpegFile = FLAGS.image_file.split('/')[-1]
+        print(str(FLAGS.category) + "," + jpegFile + "," + str(score) + "," + str(elapsedTime*1000))
         break
         
     #human_string = node_lookup.id_to_string(top_k[0])
