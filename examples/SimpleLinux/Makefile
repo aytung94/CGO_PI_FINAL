@@ -1,4 +1,6 @@
 CC=gcc
+CLANGCC=clang-3.9
+OPTCC=opt-3.9
 CXX=g++
 RM=rm -f
 CPPFLAGS=
@@ -17,12 +19,12 @@ deepbelief: $(OBJS)
 	gcc -o deepbelief.out $(OBJS) -O3 -L/usr/lib -ljpcnn
 
 deepbeliefLLVM: $(OBJS)
-	clang -o deepbeliefLLVM.out $(OBJS) -L/usr/lib -ljpcnn	
+	$(CLANGCC) -o deepbeliefLLVM.out $(OBJS) -L/usr/lib -ljpcnn	
 
 deepbeliefOpt:
-	clang main.c -c -emit-llvm 
-	opt -insert-gcov-profiling -adce -break-crit-edges main.bc -o mainOpt.bc
-	clang mainOpt.bc -o deepbeliefOpt.out -L/usr/lib -ljpcnn
+	$(CLANGCC) main.c -c -emit-llvm 
+	$(OPTCC) -insert-gcov-profiling -adce -break-crit-edges main.bc -o mainOpt.bc
+	$(CLANGCC) mainOpt.bc -o deepbeliefOpt.out -L/usr/lib -ljpcnn
 
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -fPIC -c $< -o $(basename $@).o
