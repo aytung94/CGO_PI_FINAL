@@ -40,7 +40,6 @@ import os.path
 import re
 import sys
 import tarfile
-import time
 
 import numpy as np
 from six.moves import urllib
@@ -51,6 +50,7 @@ FLAGS = None
 # pylint: disable=line-too-long
 DATA_URL = 'http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz'
 # pylint: enable=line-too-long
+
 
 class NodeLookup(object):
   """Converts integer node ID's to human readable labels."""
@@ -153,32 +153,20 @@ def run_inference_on_image(image):
     #   encoding of the image.
     # Runs the softmax tensor by feeding the image_data as input to the graph.
     softmax_tensor = sess.graph.get_tensor_by_name('softmax:0')
-
-    startTime = time.clock()
+   
     predictions = sess.run(softmax_tensor,
                            {'DecodeJpeg/contents:0': image_data})
-    elapsedTime = time.clock() - startTime
-    
+                           
     predictions = np.squeeze(predictions)
 
     # Creates node ID --> English string lookup.
     node_lookup = NodeLookup()
 
-    #top_k = predictions.argsort()[-FLAGS.num_top_predictions:][::-1]
-    for nodeid in predictions.argsort():
-      #print("FLAGS.category is " + FLAGS.category)
-      #print("node_lookup.id_to_string(nodeid) is " + node_lookup.id_to_string(nodeid))
-      if FLAGS.category in node_lookup.id_to_string(nodeid):
-        score = predictions[nodeid]
-        jpegFile = FLAGS.image_file.split('/')[-1]
-        with open("tensorflow_predictions.csv", "a") as myfile:
-          myfile.write(str(FLAGS.category) + "," + jpegFile + "," + str(score) + "," + str(elapsedTime*1000) + "\n")
-        break
-        
-    #human_string = node_lookup.id_to_string(top_k[0])
-    #score = predictions[top_k[0]]
-    #print('%s (score = %.5f)' % (human_string, score))
-    #print(str(human_string) + "," + str(score) + "," + str(elapsedTime*1000))
+    top_k = predictions.argsort()#[-FLAGS.num_top_predictions:][::-1]
+    for node_id in top_k:
+      human_string = node_lookup.id_to_string(node_id)
+      score = predictions[node_id]
+      print('%s (score = %.5f)' % (human_string, score))
 
 
 def maybe_download_and_extract():
@@ -201,7 +189,7 @@ def maybe_download_and_extract():
 
 
 def main(_):
-  maybe_download_and_extract()
+  #maybe_download_and_extract()
   image = (FLAGS.image_file if FLAGS.image_file else
            os.path.join(FLAGS.model_dir, 'cropped_panda.jpg'))
   run_inference_on_image(image)
@@ -236,12 +224,6 @@ if __name__ == '__main__':
       type=int,
       default=5,
       help='Display this many predictions.'
-  )
-  parser.add_argument(
-      '--category',
-      type=str,
-      default='accordion',
-      help='The category to predict for.'
   )
   FLAGS, unparsed = parser.parse_known_args()
   tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
