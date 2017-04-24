@@ -7,10 +7,21 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <libjpcnn.h>
 
 #define NETWORK_FILE_NAME "jetpac.ntwk"
+#define PRINT 1
+
+int comp (const void * elem1, const void * elem2)
+{
+    int e1 = *((float*)elem1);
+    int e2 = *((float*)elem2);
+    if(e1 > e2) return 1;
+    if(e1 < e2) return -1;
+    return 0;
+}
 
 int main(int argc, const char * argv[]) {
 
@@ -38,20 +49,24 @@ int main(int argc, const char * argv[]) {
   }
 
   networkHandle = jpcnn_create_network(networkFileName);
+#if PRINT
   if (networkHandle == NULL) {
     fprintf(stderr, "DeepBeliefSDK: Couldn't load network file '%s'\n", networkFileName);
     return 1;
   }
+#endif
 
   imageHandle = jpcnn_create_image_buffer_from_file(imageFileName);
+#if PRINT
   if (imageHandle == NULL) {
     fprintf(stderr, "DeepBeliefSDK: Couldn't load image file '%s'\n", imageFileName);
     return 1;
   }
-
+#endif
   jpcnn_classify_image(networkHandle, imageHandle, 0, 0, &predictions, &predictionsLength, &predictionsLabels, &predictionsLabelsLength);
   jpcnn_destroy_image_buffer(imageHandle);
 
+#if PRINT
   for (index = 0; index < predictionsLength; index += 1) {
     float predictionValue;
     char* label = predictionsLabels[index];
@@ -59,7 +74,26 @@ int main(int argc, const char * argv[]) {
     fprintf(stdout, "%d\t%f\t%s\n", index, predictionValue, label);
   }
 
-  jpcnn_destroy_network(networkHandle);
+  float pV = predictions[0];
+  char* pL = 0;
+  for(index = 1; index < predictionsLength; index++)
+  {
+    if(pV < predictions[index])
+    {
+        pV = predictions[index];
+        pL = predictionsLabels[index];
+    }
+  }
+  fprintf(stdout, "MAX: \t%f\t%s\n", pV, pL);
+#endif 
+
+//  qsort(predictions, sizeof(predictions)/sizeof(*predictions), sizeof(*predictions), comp);
+//  for(index = 0; index < predictionsLength; index++)
+//  {
+//     fprintf(stdout, "%d\t%f\t%s\n", index, predictions[index], predictionsLabels[index]);     
+//  }
+
+//  jpcnn_destroy_network(networkHandle);
 
   return 0;
 }
