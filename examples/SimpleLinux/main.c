@@ -26,7 +26,8 @@ int comp (const void * elem1, const void * elem2)
     return 0;
 }
 
-int main(int argc, const char * argv[]) {
+
+int main(int argc, char * argv[]) {
 
   const char* imageFileName;
   void* imageHandle;
@@ -114,8 +115,16 @@ float msec = diff * 1000 / CLOCKS_PER_SEC;
         pL = predictionsLabels[index];
     }
   }
-  
-  fprintf(stdout,"%s,%f,%f\n", pL, pV, msec); 
+
+  // hack
+  char* file = argv[1];
+  while(*file != 0)
+  {
+    file++;
+  }
+  file = file - 14;
+    
+  fprintf(stdout,"%s,%s,%f,%f\n", pL, file, pV, msec); 
 
 #endif
 //  qsort(predictions, sizeof(predictions)/sizeof(*predictions), sizeof(*predictions), comp);

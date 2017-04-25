@@ -38,10 +38,8 @@ do
 
     #for f in $FILES
     #do
-    #  python  tensorflow/models/tutorials/image/imagenet/classify_image.py --image_file $f 
-    #done
-
-    echo "--------------------"
+    #  python  tensorflow/models/tutorials/image/imagenet/classify_image.py --image_file $f --category $category
+    #done    
 
     for f in $FILES
     do
