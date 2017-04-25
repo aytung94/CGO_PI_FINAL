@@ -165,12 +165,19 @@ def run_inference_on_image(image):
     # Creates node ID --> English string lookup.
     node_lookup = NodeLookup()
 
-    top_k = predictions.argsort()[-FLAGS.num_top_predictions:][::-1]
-
-    human_string = node_lookup.id_to_string(top_k[0])
-    score = predictions[top_k[0]]
+    #top_k = predictions.argsort()[-FLAGS.num_top_predictions:][::-1]
+    for nodeid in predictions.argsort():
+      #print("FLAGS.category is " + FLAGS.category)
+      #print("node_lookup.id_to_string(nodeid) is " + node_lookup.id_to_string(nodeid))
+      if FLAGS.category in node_lookup.id_to_string(nodeid):
+        score = predictions[nodeid]
+        print(str(FLAGS.category) + "," + str(score) + "," + str(elapsedTime*1000))
+        break
+        
+    #human_string = node_lookup.id_to_string(top_k[0])
+    #score = predictions[top_k[0]]
     #print('%s (score = %.5f)' % (human_string, score))
-    print(str(human_string) + "," + str(score) + "," + str(elapsedTime*1000))
+    #print(str(human_string) + "," + str(score) + "," + str(elapsedTime*1000))
 
 
 def maybe_download_and_extract():
@@ -228,6 +235,12 @@ if __name__ == '__main__':
       type=int,
       default=5,
       help='Display this many predictions.'
+  )
+  parser.add_argument(
+      '--category',
+      type=str,
+      default='accordion',
+      help='The category to predict for.'
   )
   FLAGS, unparsed = parser.parse_known_args()
   tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
