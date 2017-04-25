@@ -116,7 +116,7 @@ float msec = diff * 1000 / CLOCKS_PER_SEC;
     }
   }
 
-  // hack
+  // hack image name
   char* file = argv[1];
   while(*file != 0)
   {
@@ -124,8 +124,12 @@ float msec = diff * 1000 / CLOCKS_PER_SEC;
   }
   file = file - 14;
     
-  fprintf(stdout,"%s,%s,%f,%f\n", pL, file, pV, msec); 
-
+  // output to csv file  
+  FILE *output;
+  output=fopen("deepbelief_predictions.csv", "a");      
+  fprintf(output,"%s,%s,%f,%f\n", pL, file, pV, msec); 
+  fclose(output);
+  
 #endif
 //  qsort(predictions, sizeof(predictions)/sizeof(*predictions), sizeof(*predictions), comp);
 //  for(index = 0; index < predictionsLength; index++)
