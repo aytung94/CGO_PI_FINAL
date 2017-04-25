@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 #include <libjpcnn.h>
@@ -42,6 +43,10 @@ int main(int argc, const char * argv[]) {
   } else {
     imageFileName = argv[1];
   }
+  
+#if TEST
+  const char* category = argv[3];
+#endif
 
   const char* networkFileName;
   if (argc < 3) {
@@ -103,7 +108,7 @@ float msec = diff * 1000 / CLOCKS_PER_SEC;
   char* pL = 0;
   for(index = 1; index < predictionsLength; index++)
   {
-    if(pV < predictions[index])
+    if(strcmp(predictionsLabels[index],category) == 0)
     {
         pV = predictions[index];
         pL = predictionsLabels[index];
