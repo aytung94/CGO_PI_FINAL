@@ -8,11 +8,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include <libjpcnn.h>
 
-#define NETWORK_FILE_NAME "jetpac.ntwk"
-#define PRINT 1
+#define NETWORK_FILE_NAME "ccv2012.ntwk" // "jetpac.ntwk"
+#define PRINT 0
+#define TEST 1
 
 int comp (const void * elem1, const void * elem2)
 {
@@ -63,7 +65,16 @@ int main(int argc, const char * argv[]) {
     return 1;
   }
 #endif
+
+#if TEST
+clock_t start = clock(), diff;
+#endif
   jpcnn_classify_image(networkHandle, imageHandle, 0, 0, &predictions, &predictionsLength, &predictionsLabels, &predictionsLabelsLength);
+#if TEST
+diff = clock() -start;
+float msec = diff * 1000 / CLOCKS_PER_SEC;
+#endif
+
   jpcnn_destroy_image_buffer(imageHandle);
 
 #if PRINT
@@ -87,6 +98,21 @@ int main(int argc, const char * argv[]) {
   fprintf(stdout, "MAX: \t%f\t%s\n", pV, pL);
 #endif 
 
+#if TEST
+  float pV = predictions[0];
+  char* pL = 0;
+  for(index = 1; index < predictionsLength; index++)
+  {
+    if(pV < predictions[index])
+    {
+        pV = predictions[index];
+        pL = predictionsLabels[index];
+    }
+  }
+  
+  fprintf(stdout,"%s,%f,%f\n", pL, pV, msec); 
+
+#endif
 //  qsort(predictions, sizeof(predictions)/sizeof(*predictions), sizeof(*predictions), comp);
 //  for(index = 0; index < predictionsLength; index++)
 //  {
