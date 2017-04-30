@@ -16,6 +16,7 @@
 #define NETWORK_FILE_NAME "ccv2012.ntwk" // "jetpac.ntwk"
 #define PRINT 0
 #define TEST 1
+#define WATING 0
 
 int comp (const void * elem1, const void * elem2)
 {
@@ -26,8 +27,20 @@ int comp (const void * elem1, const void * elem2)
     return 0;
 }
 
+volatile int dum = 0;
+void waiting(void);
+
+void waiting(){
+	int i ;
+	for (i = 0; i < 1000000000; i++){
+		dum += 1;
+	}
+}
 
 int main(int argc, char * argv[]) {
+#if WAITING
+  waiting();
+#endif
 
   const char* imageFileName;
   void* imageHandle;
@@ -73,11 +86,11 @@ int main(int argc, char * argv[]) {
 #endif
 
 #if TEST
-clock_t start = clock(), diff;
+unsigned long start = clock(), diff;
 #endif
   jpcnn_classify_image(networkHandle, imageHandle, 0, 0, &predictions, &predictionsLength, &predictionsLabels, &predictionsLabelsLength);
 #if TEST
-diff = clock() -start;
+diff = clock() - start;
 float msec = diff * 1000 / CLOCKS_PER_SEC;
 #endif
 
