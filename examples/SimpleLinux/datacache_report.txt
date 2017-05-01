@@ -1,0 +1,7 @@
+ Performance counter stats for './deepbeliefGccProf.out image_000L.jpg ccv2012.ntwk banana':
+
+       676,467,368      L1-dcache-loads                                             
+        17,254,331      L1-dcache-load-misses     #    2.55% of all L1-dcache hits  
+       676,467,368      L1-dcache-stores                                            
+
+       3.186567812 seconds time elapsed
