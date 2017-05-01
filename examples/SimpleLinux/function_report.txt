@@ -3,135 +3,123 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 13K of event 'cycles:ppp'
-# Event count (approx.): 3859094570
+# Samples: 300  of event 'cycles:ppp'
+# Event count (approx.): 3816667444
 #
-# Overhead  Command          Shared Object      Symbol                                                                                         
-# ........  ...............  .................  ..........................................................................................................................................
+# Children      Self  Command          Shared Object      Symbol                                                                                         
+# ........  ........  ...............  .................  ..........................................................................................................................................
 #
-    29.87%  deepbeliefGccPr  libjpcnn.so        [.] Eigen::internal::gemm_pack_lhs<float, int, Eigen::internal::const_blas_data_mapper<float, int, 1>, 12, 4, 1, false, false>::operator()
-    21.79%  deepbeliefGccPr  libjpcnn.so        [.] Eigen::internal::gebp_kernel<float, float, int, Eigen::internal::blas_data_mapper<float, int, 0, 0>, 12, 4, false, false>::operator() 
-    14.25%  deepbeliefGccPr  libm-2.19.so       [.] __powf_finite                                                                                                                         
-     5.01%  deepbeliefGccPr  libjpcnn.so        [.] cblas_sgemm_fixed                                                                                                                     
-     3.74%  deepbeliefGccPr  [kernel.kallsyms]  [k] v7_flush_kern_dcache_area                                                                                                             
-     3.10%  deepbeliefGccPr  libjpcnn.so        [.] matrix_max_patch                                                                                                                      
-     2.63%  deepbeliefGccPr  libarmmem.so       [.] memcmp                                                                                                                                
-     2.58%  deepbeliefGccPr  libjpcnn.so        [.] Eigen::internal::gemm_pack_rhs<float, int, Eigen::internal::const_blas_data_mapper<float, int, 0>, 4, 0, false, false>::operator()    
-     2.16%  deepbeliefGccPr  [kernel.kallsyms]  [k] __memzero                                                                                                                             
-     1.93%  deepbeliefGccPr  [kernel.kallsyms]  [k] mmiocpy                                                                                                                               
-     1.71%  deepbeliefGccPr  libjpcnn.so        [.] matrix_local_response                                                                                                                 
-     0.95%  deepbeliefGccPr  [kernel.kallsyms]  [k] get_page_from_freelist                                                                                                                
-     0.88%  deepbeliefGccPr  libjpcnn.so        [.] parse_zlib                                                                                                                            
-     0.78%  deepbeliefGccPr  [kernel.kallsyms]  [k] do_page_fault                                                                                                                         
-     0.60%  deepbeliefGccPr  libjpcnn.so        [.] matrix_add_inplace                                                                                                                    
-     0.59%  deepbeliefGccPr  [kernel.kallsyms]  [k] handle_mm_fault                                                                                                                       
-     0.48%  deepbeliefGccPr  [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore                                                                                                           
-     0.47%  deepbeliefGccPr  [kernel.kallsyms]  [k] free_hot_cold_page                                                                                                                    
-     0.33%  deepbeliefGccPr  [kernel.kallsyms]  [k] mem_cgroup_commit_charge                                                                                                              
-     0.33%  deepbeliefGccPr  libjpcnn.so        [.] create_png_image_raw                                                                                                                  
-     0.33%  deepbeliefGccPr  libjpcnn.so        [.] PrepareInput::run                                                                                                                     
-     0.27%  deepbeliefGccPr  [kernel.kallsyms]  [k] _raw_spin_lock                                                                                                                        
-     0.27%  deepbeliefGccPr  libjpcnn.so        [.] matrix_max                                                                                                                            
-     0.21%  deepbeliefGccPr  [kernel.kallsyms]  [k] unmap_single_vma                                                                                                                      
-     0.21%  deepbeliefGccPr  libarmmem.so       [.] memset                                                                                                                                
-     0.19%  deepbeliefGccPr  [kernel.kallsyms]  [k] v6_clear_user_highpage_nonaliasing                                                                                                    
-     0.18%  deepbeliefGccPr  [kernel.kallsyms]  [k] __sync_icache_dcache                                                                                                                  
-     0.18%  deepbeliefGccPr  [kernel.kallsyms]  [k] vmacache_find                                                                                                                         
-     0.16%  deepbeliefGccPr  [kernel.kallsyms]  [k] __alloc_pages_nodemask                                                                                                                
-     0.15%  deepbeliefGccPr  [kernel.kallsyms]  [k] pin_page_for_write                                                                                                                    
-     0.15%  deepbeliefGccPr  [kernel.kallsyms]  [k] copy_page_to_iter                                                                                                                     
-     0.12%  deepbeliefGccPr  [kernel.kallsyms]  [k] _cond_resched                                                                                                                         
-     0.12%  deepbeliefGccPr  [kernel.kallsyms]  [k] up_read                                                                                                                               
-     0.11%  deepbeliefGccPr  [kernel.kallsyms]  [k] get_mem_cgroup_from_mm                                                                                                                
-     0.11%  deepbeliefGccPr  [kernel.kallsyms]  [k] _set_bit                                                                                                                              
-     0.10%  deepbeliefGccPr  [kernel.kallsyms]  [k] __copy_to_user_memcpy                                                                                                                 
-     0.10%  deepbeliefGccPr  [kernel.kallsyms]  [k] page_add_new_anon_rmap                                                                                                                
-     0.10%  deepbeliefGccPr  [kernel.kallsyms]  [k] __zone_watermark_ok                                                                                                                   
-     0.10%  deepbeliefGccPr  [kernel.kallsyms]  [k] __mod_zone_page_state                                                                                                                 
-     0.10%  deepbeliefGccPr  [kernel.kallsyms]  [k] _test_and_set_bit                                                                                                                     
-     0.09%  deepbeliefGccPr  [kernel.kallsyms]  [k] try_charge                                                                                                                            
-     0.09%  deepbeliefGccPr  [kernel.kallsyms]  [k] mem_cgroup_try_charge                                                                                                                 
-     0.09%  deepbeliefGccPr  [kernel.kallsyms]  [k] __flush_dcache_page                                                                                                                   
-     0.09%  deepbeliefGccPr  [kernel.kallsyms]  [k] page_remove_rmap                                                                                                                      
-     0.09%  deepbeliefGccPr  [kernel.kallsyms]  [k] release_pages                                                                                                                         
-     0.08%  deepbeliefGccPr  libjpcnn.so        [.] 0x00007228                                                                                                                            
-     0.08%  deepbeliefGccPr  [kernel.kallsyms]  [k] find_get_entry                                                                                                                        
-     0.08%  deepbeliefGccPr  [kernel.kallsyms]  [k] next_zones_zonelist                                                                                                                   
-     0.08%  deepbeliefGccPr  [kernel.kallsyms]  [k] down_read_trylock                                                                                                                     
-     0.08%  deepbeliefGccPr  libjpcnn.so        [.] matrix_correlate                                                                                                                      
-     0.07%  deepbeliefGccPr  [kernel.kallsyms]  [k] generic_file_read_iter                                                                                                                
-     0.06%  deepbeliefGccPr  [kernel.kallsyms]  [k] anon_vma_prepare                                                                                                                      
-     0.06%  deepbeliefGccPr  [kernel.kallsyms]  [k] find_vma                                                                                                                              
-     0.06%  deepbeliefGccPr  libm-2.19.so       [.] __floorf                                                                                                                              
-     0.06%  deepbeliefGccPr  ld-2.19.so         [.] do_lookup_x                                                                                                                           
-     0.05%  deepbeliefGccPr  libjpcnn.so        [.] buffer_from_image_file                                                                                                                
-     0.05%  deepbeliefGccPr  [kernel.kallsyms]  [k] add_mm_counter_fast                                                                                                                   
-     0.05%  deepbeliefGccPr  [kernel.kallsyms]  [k] memblock_is_memory                                                                                                                    
-     0.05%  deepbeliefGccPr  [kernel.kallsyms]  [k] free_pages_prepare                                                                                                                    
-     0.05%  deepbeliefGccPr  [kernel.kallsyms]  [k] __radix_tree_lookup                                                                                                                   
-     0.05%  deepbeliefGccPr  [kernel.kallsyms]  [k] mem_cgroup_from_task                                                                                                                  
-     0.05%  deepbeliefGccPr  [kernel.kallsyms]  [k] __lru_cache_add                                                                                                                       
-     0.04%  deepbeliefGccPr  [kernel.kallsyms]  [k] get_pfnblock_flags_mask                                                                                                               
-     0.04%  deepbeliefGccPr  [kernel.kallsyms]  [k] vm_normal_page                                                                                                                        
-     0.04%  deepbeliefGccPr  libm-2.19.so       [.] __ceilf                                                                                                                               
-     0.04%  deepbeliefGccPr  libjpcnn.so        [.] Eigen::internal::general_matrix_matrix_product<int, float, 1, false, float, 0, false, 0>::run                                         
-     0.03%  deepbeliefGccPr  [kernel.kallsyms]  [k] pfn_valid                                                                                                                             
-     0.03%  deepbeliefGccPr  [kernel.kallsyms]  [k] free_hot_cold_page_list                                                                                                               
-     0.03%  deepbeliefGccPr  [kernel.kallsyms]  [k] pagecache_get_page                                                                                                                    
-     0.03%  deepbeliefGccPr  [kernel.kallsyms]  [k] sync_mm_rss                                                                                                                           
-     0.03%  deepbeliefGccPr  libjpcnn.so        [.] eigen_cblas_sgemm                                                                                                                     
-     0.03%  deepbeliefGccPr  libarmmem.so       [.] memcpy                                                                                                                                
-     0.03%  deepbeliefGccPr  [kernel.kallsyms]  [k] put_page                                                                                                                              
-     0.03%  deepbeliefGccPr  libjpcnn.so        [.] 0x00007220                                                                                                                            
-     0.03%  deepbeliefGccPr  libjpcnn.so        [.] convert_from_channeled_rgb_image                                                                                                      
-     0.03%  deepbeliefGccPr  ld-2.19.so         [.] _dl_lookup_symbol_x                                                                                                                   
-     0.03%  deepbeliefGccPr  [kernel.kallsyms]  [k] v7_flush_icache_all                                                                                                                   
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] cpu_ca9mp_set_pte_ext                                                                                                                 
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] ret_from_exception                                                                                                                    
-     0.02%  deepbeliefGccPr  libc-2.19.so       [.] _int_malloc                                                                                                                           
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] ret_to_user                                                                                                                           
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] free_pages_and_swap_cache                                                                                                             
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] __dabt_svc                                                                                                                            
-     0.02%  deepbeliefGccPr  ld-2.19.so         [.] _dl_relocate_object                                                                                                                   
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] do_DataAbort                                                                                                                          
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] __dabt_usr                                                                                                                            
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] uncharge_list                                                                                                                         
-     0.02%  deepbeliefGccPr  libc-2.19.so       [.] malloc                                                                                                                                
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] arm_copy_to_user                                                                                                                      
-     0.02%  deepbeliefGccPr  libjpcnn.so        [.] zbuild_huffman                                                                                                                        
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] lru_add_drain_cpu                                                                                                                     
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] __pte_alloc                                                                                                                           
-     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] lru_cache_add_active_or_unevictable                                                                                                   
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] finish_task_switch                                                                                                                    
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] update_group_capacity                                                                                                                 
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] radix_tree_lookup_slot                                                                                                                
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] __wake_up_bit                                                                                                                         
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] rebalance_domains                                                                                                                     
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] strlcpy                                                                                                                               
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] v7wbi_flush_user_tlb_range                                                                                                            
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] iov_iter_init                                                                                                                         
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] vma_compute_subtree_gap                                                                                                               
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] kmem_cache_free                                                                                                                       
-     0.01%  deepbeliefGccPr  ld-2.19.so         [.] _dl_name_match_p                                                                                                                      
-     0.01%  deepbeliefGccPr  libjpcnn.so        [.] compute_huffman_codes                                                                                                                 
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] __rb_insert_augmented                                                                                                                 
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] mmioset                                                                                                                               
-     0.01%  deepbeliefGccPr  libjpcnn.so        [.] matrix_insert_margin                                                                                                                  
-     0.01%  deepbeliefGccPr  libc-2.19.so       [.] memcpy                                                                                                                                
-     0.01%  deepbeliefGccPr  libc-2.19.so       [.] __unregister_atfork                                                                                                                   
-     0.01%  deepbeliefGccPr  ld-2.19.so         [.] __udivsi3                                                                                                                             
-     0.01%  deepbeliefGccPr  libjpcnn.so        [.] get_tag_from_memory                                                                                                                   
-     0.01%  deepbeliefGccPr  ld-2.19.so         [.] _dl_fixup                                                                                                                             
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] vma_adjust                                                                                                                            
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] __fput                                                                                                                                
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] strlen                                                                                                                                
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] _raw_spin_lock_irqsave                                                                                                                
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] lru_add_drain                                                                                                                         
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] vma_merge                                                                                                                             
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] perf_event_mmap_output                                                                                                                
-     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] perf_event_mmap                                                                                                                       
-     0.01%  deepbeliefGccPr  libjpcnn.so        [.] GConvNode::GConvNode                                                                                                                  
-     0.00%  perf_4.4         [kernel.kallsyms]  [k] perf_event_exec                                                                                                                       
+    31.72%    31.72%  deepbeliefGccPr  libjpcnn.so        [.] Eigen::internal::gemm_pack_lhs<float, int, Eigen::internal::const_blas_data_mapper<float, int, 1>, 12, 4, 1, false, false>::operator()
+    31.41%     0.00%  deepbeliefGccPr  perf-7955.map      [.] 0x7eebb2a0                                                                                                                            
+    22.53%    22.53%  deepbeliefGccPr  libjpcnn.so        [.] Eigen::internal::gebp_kernel<float, float, int, Eigen::internal::blas_data_mapper<float, int, 0, 0>, 12, 4, false, false>::operator() 
+    14.52%    14.52%  deepbeliefGccPr  libm-2.19.so       [.] __powf_finite                                                                                                                         
+    14.11%     0.32%  deepbeliefGccPr  [kernel.kallsyms]  [k] do_page_fault                                                                                                                         
+    14.11%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] do_DataAbort                                                                                                                          
+    13.80%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] handle_mm_fault                                                                                                                       
+    13.49%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x40075d9e                                                                                                                            
+    10.49%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __dabt_usr                                                                                                                            
+     9.17%     1.04%  deepbeliefGccPr  libarmmem.so       [.] memcmp                                                                                                                                
+     5.91%     0.00%  deepbeliefGccPr  [unknown]          [k] 0x00001000                                                                                                                            
+     5.74%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] ret_fast_syscall                                                                                                                      
+     4.97%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __sync_icache_dcache                                                                                                                  
+     4.55%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __vfs_read                                                                                                                            
+     4.55%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] generic_file_read_iter                                                                                                                
+     4.55%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] sys_read                                                                                                                              
+     4.55%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] vfs_read                                                                                                                              
+     4.55%     0.00%  deepbeliefGccPr  libc-2.19.so       [.] __GI___libc_read                                                                                                                      
+     4.55%     0.00%  deepbeliefGccPr  [unknown]          [k] 0x42fd81df                                                                                                                            
+     4.32%     4.32%  deepbeliefGccPr  [kernel.kallsyms]  [k] get_page_from_freelist                                                                                                                
+     4.32%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __alloc_pages_nodemask                                                                                                                
+     4.18%     3.54%  deepbeliefGccPr  libjpcnn.so        [.] cblas_sgemm_fixed                                                                                                                     
+     3.65%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] copy_page_to_iter                                                                                                                     
+     3.63%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __dabt_svc                                                                                                                            
+     2.95%     2.95%  deepbeliefGccPr  [kernel.kallsyms]  [k] v7_flush_kern_dcache_area                                                                                                             
+     2.95%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __flush_dcache_page                                                                                                                   
+     2.93%     2.93%  deepbeliefGccPr  [kernel.kallsyms]  [k] mem_cgroup_commit_charge                                                                                                              
+     2.85%     2.85%  deepbeliefGccPr  libjpcnn.so        [.] matrix_max_patch                                                                                                                      
+     2.54%     2.54%  deepbeliefGccPr  libjpcnn.so        [.] Eigen::internal::gemm_pack_rhs<float, int, Eigen::internal::const_blas_data_mapper<float, int, 0>, 4, 0, false, false>::operator()    
+     2.48%     2.48%  deepbeliefGccPr  [kernel.kallsyms]  [k] __memzero                                                                                                                             
+     2.48%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] v6_clear_user_highpage_nonaliasing                                                                                                    
+     2.35%     0.00%  deepbeliefGccPr  [unknown]          [k] 00000000                                                                                                                              
+     2.14%     1.52%  deepbeliefGccPr  libjpcnn.so        [.] matrix_local_response                                                                                                                 
+     1.90%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x40093e8a                                                                                                                            
+     1.70%     0.32%  deepbeliefGccPr  [kernel.kallsyms]  [k] _test_and_set_bit                                                                                                                     
+     1.38%     1.38%  deepbeliefGccPr  [kernel.kallsyms]  [k] __do_softirq                                                                                                                          
+     1.38%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __handle_domain_irq                                                                                                                   
+     1.38%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __irq_svc                                                                                                                             
+     1.38%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] bcm2836_arm_irqchip_handle_irq                                                                                                        
+     1.38%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] handle_IRQ                                                                                                                            
+     1.38%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] irq_exit                                                                                                                              
+     1.27%     0.00%  deepbeliefGccPr  libc-2.19.so       [.] 0xffffffff892209f8                                                                                                                    
+     1.27%     0.00%  deepbeliefGccPr  perf-7955.map      [.] 0x7eecaf0c                                                                                                                            
+     1.27%     0.00%  deepbeliefGccPr  perf-7955.map      [.] 0x7eecaf40                                                                                                                            
+     1.17%     0.30%  deepbeliefGccPr  [kernel.kallsyms]  [k] unmap_single_vma                                                                                                                      
+     1.17%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __wake_up_parent                                                                                                                      
+     1.17%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] do_exit                                                                                                                               
+     1.17%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] do_group_exit                                                                                                                         
+     1.17%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] exit_mmap                                                                                                                             
+     1.17%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] mmput                                                                                                                                 
+     1.17%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] unmap_vmas                                                                                                                            
+     1.03%     1.03%  deepbeliefGccPr  libjpcnn.so        [.] parse_zlib                                                                                                                            
+     0.95%     0.95%  deepbeliefGccPr  libjpcnn.so        [.] matrix_add_inplace                                                                                                                    
+     0.90%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __do_page_cache_readahead                                                                                                             
+     0.90%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] ondemand_readahead                                                                                                                    
+     0.90%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] page_cache_async_readahead                                                                                                            
+     0.88%     0.88%  deepbeliefGccPr  [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore                                                                                                           
+     0.88%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] free_pages_and_swap_cache                                                                                                             
+     0.88%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] release_pages                                                                                                                         
+     0.63%     0.32%  deepbeliefGccPr  libjpcnn.so        [.] matrix_max                                                                                                                            
+     0.63%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x00000011                                                                                                                            
+     0.59%     0.00%  deepbeliefGccPr  [unknown]          [k] 0x000003e8                                                                                                                            
+     0.49%     0.49%  deepbeliefGccPr  libjpcnn.so        [.] create_png_image_raw                                                                                                                  
+     0.49%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x49246f4c                                                                                                                            
+     0.45%     0.00%  deepbeliefGccPr  libjpcnn.so        [.] buffer_from_image_file                                                                                                                
+     0.40%     0.40%  deepbeliefGccPr  libjpcnn.so        [.] PrepareInput::run                                                                                                                     
+     0.40%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x42ba0000                                                                                                                            
+     0.36%     0.00%  deepbeliefGccPr  [unknown]          [k] 0xc13a6f08                                                                                                                            
+     0.35%     0.00%  deepbeliefGccPr  [unknown]          [k] 0x404b2e80                                                                                                                            
+     0.34%     0.00%  deepbeliefGccPr  libarmmem.so       [.] memset                                                                                                                                
+     0.32%     0.32%  deepbeliefGccPr  libc-2.19.so       [.] _int_malloc                                                                                                                           
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x69737265                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x400ec152                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0xba8de800                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x4000eda7                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x40000b80                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x40268c18                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [k] 0x420e86a0                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0xc1b3226c                                                                                                                            
+     0.32%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x40daedf2                                                                                                                            
+     0.31%     0.00%  deepbeliefGccPr  [unknown]          [.] 0x4035d651                                                                                                                            
+     0.31%     0.00%  deepbeliefGccPr  perf-7955.map      [.] 0x7eebb1d0                                                                                                                            
+     0.31%     0.00%  deepbeliefGccPr  [unknown]          [k] 0x3d14d705                                                                                                                            
+     0.31%     0.31%  deepbeliefGccPr  [kernel.kallsyms]  [k] memblock_is_memory                                                                                                                    
+     0.31%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] pfn_valid                                                                                                                             
+     0.02%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __copy_to_user_memcpy                                                                                                                 
+     0.02%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] arm_copy_to_user                                                                                                                      
+     0.02%     0.02%  deepbeliefGccPr  [kernel.kallsyms]  [k] __blocking_notifier_call_chain                                                                                                        
+     0.02%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] profile_munmap                                                                                                                        
+     0.02%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] sys_munmap                                                                                                                            
+     0.02%     0.00%  deepbeliefGccPr  ld-2.19.so         [.] munmap                                                                                                                                
+     0.02%     0.00%  deepbeliefGccPr  ld-2.19.so         [.] 0xffffffff89073f38                                                                                                                    
+     0.01%     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] pin_page_for_write                                                                                                                    
+     0.01%     0.01%  deepbeliefGccPr  [kernel.kallsyms]  [k] mmiocpy                                                                                                                               
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] finish_task_switch                                                                                                                    
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __lock_page_killable                                                                                                                  
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __schedule                                                                                                                            
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] __wait_on_bit_lock                                                                                                                    
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] bit_wait_io                                                                                                                           
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] io_schedule_timeout                                                                                                                   
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] schedule                                                                                                                              
+     0.00%     0.00%  deepbeliefGccPr  [kernel.kallsyms]  [k] schedule_timeout                                                                                                                      
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] perf_event_exec                                                                                                                       
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] do_execve                                                                                                                             
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] do_execveat_common                                                                                                                    
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] load_elf_binary                                                                                                                       
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] ret_fast_syscall                                                                                                                      
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] search_binary_handler                                                                                                                 
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] setup_new_exec                                                                                                                        
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]  [k] sys_execve                                                                                                                            
+     0.00%     0.00%  perf_4.4         [unknown]          [k] 0x769a7820                                                                                                                            
 
 
 #

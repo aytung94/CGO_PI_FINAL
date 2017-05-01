@@ -3,18 +3,21 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 13K of event 'cycles:ppp'
-# Event count (approx.): 3859094570
+# Samples: 300  of event 'cycles:ppp'
+# Event count (approx.): 3816667444
 #
-# Overhead  Command          Shared Object    
-# ........  ...............  .................
+# Children      Self  Command          Shared Object    
+# ........  ........  ...............  .................
 #
-    66.86%  deepbeliefGccPr  libjpcnn.so      
-    15.72%  deepbeliefGccPr  [kernel.kallsyms]
-    14.35%  deepbeliefGccPr  libm-2.19.so     
-     2.87%  deepbeliefGccPr  libarmmem.so     
-     0.13%  deepbeliefGccPr  ld-2.19.so       
-     0.05%  deepbeliefGccPr  libc-2.19.so     
-     0.00%  perf_4.4         [kernel.kallsyms]
+    69.92%    67.89%  deepbeliefGccPr  libjpcnn.so      
+    34.52%     0.00%  deepbeliefGccPr  [unknown]        
+    32.99%     0.00%  deepbeliefGccPr  perf-7955.map    
+    16.23%    16.23%  deepbeliefGccPr  [kernel.kallsyms]
+    14.52%    14.52%  deepbeliefGccPr  libm-2.19.so     
+     9.50%     1.04%  deepbeliefGccPr  libarmmem.so     
+     5.82%     0.32%  deepbeliefGccPr  libc-2.19.so     
+     0.02%     0.00%  deepbeliefGccPr  ld-2.19.so       
+     0.00%     0.00%  perf_4.4         [kernel.kallsyms]
+     0.00%     0.00%  perf_4.4         [unknown]        
 
 

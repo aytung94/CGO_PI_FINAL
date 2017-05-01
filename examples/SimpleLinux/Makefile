@@ -18,11 +18,17 @@ opt: deepbeliefOpt
 deepbelief: $(OBJS)
 	gcc -o deepbelief.out $(OBJS) -O3 -L/usr/lib -ljpcnn
 
+deepbeliefOMP: $(OBJS)
+	gcc -o deepbeliefOMP.out $(OBJS) -Ofast -fopenmp -L/usr/lib -ljpcnn
+	export OMP_NUM_THREADS=4
+
 deepbeliefGccProf: $(OBJS)
 	gcc -fno-omit-frame-pointer -o deepbeliefGccProf.out $(OBJS) -O3 -L/usr/lib -ljpcnn
-	perf record ./deepbeliefGccProf.out image_000L.jpg ccv2012.ntwk banana
+	perf record -g -F 99 ./deepbeliefGccProf.out image_000L.jpg ccv2012.ntwk banana
 	perf report --stdio -g none --sort comm,dso -i ./perf.data > module_report.txt
 	perf report --stdio -g none -i ./perf.data|c++filt > function_report.txt
+	#perf stat -e L1-dcache-loads,L1-dcache-load-misses,L1-dcache-stores ./deepbeliefGccProf.out image_000L.jpg ccv2012.ntwk banana > datacache_report.txt
+
 	
 deepbeliefLLVM: $(OBJS)
 	$(CLANGCC) -o deepbeliefLLVM.out $(OBJS) -O3 -L/usr/lib -ljpcnn	
